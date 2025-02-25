@@ -1,0 +1,87 @@
+.instructionDiv {
+  /* background: #1f2e68c1;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.5),
+    inset 0px -4.51519px 5.41823px rgba(0, 0, 0, 0.25),
+    inset -8.12735px 6.32127px 8.30795px rgba(0, 0, 0, 0.25),
+    inset -2.37532px -3.16709px 3.16709px rgba(255, 255, 255, 0.15),
+    inset 3.16709px 0px 7.91772px 1.58354px rgba(0, 0, 0, 0.25);
+  border: 2px solid white; */
+  border-radius: 7.22431px;
+  width: 90%;
+  margin: auto;
+  margin-top: 5%;
+  /* border: 2px solid white;
+  box-shadow: inset 0px 2px 32px rgb(0 0 0); */
+}
+
+.instructionHead h1 {
+  text-shadow: 0px 1px 20px rgb(255 255 255 / 50%);
+}
+
+.react-multi-carousel-dot-list {
+  bottom: 5vh !important;
+  /* z-index: 0; */
+}
+
+.instructionCard {
+  color: white;
+  padding: 6% 0 10% 0;
+  height: 85dvh;
+  width: 80%;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructionItem {
+  padding: 3% 0;
+  font-size: 100%;
+  margin-bottom: 8px;
+}
+
+.instructionList {
+  list-style-type: disc;
+  margin: 0;
+  /* padding-left: 20px; */
+}
+
+.instructionListOuterDiv {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  /* text-shadow: 0px 1px 20px rgb(255 255 255 / 50%); */
+
+}
+
+.powerUpsInnerDiv {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.CollectablesInnerDiv {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.TimerInnerDiv {
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.instructionList {
+  text-shadow: 0px 1px 20px rgb(255 255 255 / 50%);
+  font-size: 1.2rem;
+}

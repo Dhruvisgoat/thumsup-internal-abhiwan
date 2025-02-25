@@ -1,0 +1,52 @@
+.loading-bar {
+  width: 100%;
+  max-width: 300px !important;
+  height: 3%;
+  background: #1a265b;
+  overflow: hidden;
+  position: relative;
+  /* display: flex; */
+  /* flex-flow: row wrap; */
+  /* align-items: center; */
+  place-content: center;
+  border-radius: 10rem !important;
+  border: 2px solid #fff;
+}
+
+.progress {
+  width: 100%;
+  margin: auto;
+  height: 100% !important;
+  background: none !important;
+}
+
+.progress-bar {
+  background: radial-gradient(
+    50% 2008.36% at 50% 50%,
+    #e60006 0%,
+    #80000d 100%
+  ) !important;
+}
+
+/* .loading-bar::before {
+  content: "";
+  display: block;
+  width: 90%;
+  height: 60%;
+  background: radial-gradient(50% 2008.36% at 50% 50%, #E60006 0%, #80000D 100%);
+  box-shadow: 0px 4.20927px 4.20927px rgba(0, 0, 0, 0.25);
+  border-radius: 1.05232px;
+  animation: loading 3s linear infinite;
+  position: absolute;
+  left: -100%;
+  border-radius: 1rem;
+}
+
+@keyframes loading {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+} */

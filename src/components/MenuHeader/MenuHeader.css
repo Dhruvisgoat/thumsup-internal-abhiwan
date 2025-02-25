@@ -1,0 +1,25 @@
+.menuHeader {
+  position: absolute;
+  top: 10px;
+  background: transparent;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2%;
+}
+
+.menuProfile {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.menuProfile p {
+  font-size: 100%;
+}
+
+.menuInfo {
+  cursor: pointer;
+}

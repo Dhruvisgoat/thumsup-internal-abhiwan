@@ -1,0 +1,177 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:auto;
+  max-width: 500px;
+  z-index: 1000;
+}
+
+.modalContent {
+  background: #1f2d68;
+  box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.5),
+    inset 0px -9px 10px rgba(0, 0, 0, 0.35),
+    inset -16px 12px 16px rgba(0, 0, 0, 0.25),
+    inset -5px -6px 6px rgba(255, 255, 255, 0.15),
+    inset 6px 0px 16px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 7.22431px;
+  padding: 20px;
+  width: 90%;
+  /* text-align: center; */
+  border: 1px solid #fff;
+  color: white;
+  position: relative;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 10px 0; */
+}
+
+.progressBar {
+  flex-grow: 1;
+  height: 17px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  border:3px solid rgb(164, 135, 109);
+  /* margin: 0 10px; */
+}
+
+.progressVolume {
+  height: 100%;
+  background: red; /* Change this color if needed */
+  /* border-radius: 5px;  */
+}
+.progressMusic {
+  height: 100%;
+  background: #3b5998; /* Change this color if needed */
+  /* border-radius: 5px; */
+}
+
+.buttonUpdated {
+  background-color: transparent;
+  border: none;
+}
+
+.buttonUpdated:hover {
+  background-color: transparent;
+  transform: scale(1.1);
+}
+
+.closeBtn {
+  margin-top: 20px;
+}
+
+.settingimg {
+  position: absolute;
+  top: -20%;
+  left: 30%;
+}
+
+.settingPop {
+  padding: 10% 0;
+}
+
+.settingPop p{
+  margin: 5% 0;
+}
+
+
+
+
+.progressBar {
+  flex-grow: 1;
+  height: 17px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  border: 3px solid rgb(164, 135, 109);
+  position: relative;
+  cursor: pointer;
+}
+
+.progressFill {
+  height: 100%;
+  background: red;
+  transition: width 0.1s;
+}
+
+.slider {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 30px;
+  background: rgb(224, 199, 199);
+  border-radius: 2px;
+  cursor: grab;
+}
+
+.slider:active {
+  cursor: grabbing;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.controlBtn {
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid #000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.controlBtn img {
+  width: 15px;
+  height: 15px;
+}
+
+.progressBar {
+  flex-grow: 1;
+  height: 17px;
+  background: #e0e0e0;
+  border-radius: 3px;
+  border: 3px solid rgb(164, 135, 109);
+  position: relative;
+  cursor: pointer;
+}
+
+.progressVolume,
+.progressMusic {
+  height: 100%;
+  position: relative;
+}
+
+.progressVolume {
+  background: red;
+}
+
+.progressMusic {
+  background: #3b5998;
+}
+
+.sliderHandle {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 15px;
+  height: 30px;
+  background: rgb(239, 224, 224);
+  border: 1px solid rgb(147, 138, 138);
+  cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.mapSvg {
+  height: 85%;
+}
+  
+.stateMap {
+  margin: auto;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+}

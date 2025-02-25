@@ -1,0 +1,203 @@
+.charactr-selectionMainDiv {
+  /* height: 80dvh; */
+  height: 90dvh;
+  align-content: center;
+  overflow-y:scroll;
+}
+
+.go2072408551 {
+  position: relative;
+  top: 30px;
+  width: 200px;
+}
+
+/* Main container */
+.character-selection-container {
+  width: 85%;
+  background: rgba(226, 195, 195, 0.2);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
+  /* backdrop-filter: blur(5px); */
+  margin: auto;
+  position: relative;
+}
+
+/* Avatar and username section */
+.avatar-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.collectedPoints {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ffffff;
+  box-shadow: 0px 2.99091px 1.49546px rgba(0, 0, 0, 0.5),
+    inset 0px -3.37614px 4.05136px rgba(0, 0, 0, 0.25),
+    inset -6.07705px 4.72659px 6.21209px rgba(0, 0, 0, 0.25),
+    inset -1.77609px -2.36812px 2.36812px rgba(255, 255, 255, 0.15),
+    inset 2.36812px 0px 5.9203px 1.18406px rgba(0, 0, 0, 0.25);
+  border-radius: 3.43571px;
+  font-size: 80%;
+  padding: 1% 2%;
+}
+
+.avatar-image {
+  width: 100%;
+  border-radius: 50%;
+  background: rgba(31, 45, 104, 1);
+  /* add shadow inside the image equally in all directions */
+
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5),
+    inset 0px -3.93064px 4.71676px rgba(0, 0, 0, 0.25),
+    inset -7.07515px 5.50289px 7.23237px rgba(0, 0, 0, 0.25),
+    inset -2.0678px -2.75706px 2.75706px rgba(255, 255, 255, 0.15),
+    inset 2.75706px 0px 6.89266px 1.37853px rgba(0, 0, 0, 0.25);
+
+  /* filter: drop-shadow(0px 1.63884px 3.27769px #000000); */
+  filter: drop-shadow(0px 2.0855px 4.171px rgba(0, 0, 0, 0.5));
+  /* border: 1px solid #fff; */
+}
+
+.styleRoundedImageBorder {
+  padding: 3px;
+  background: linear-gradient(grey, white);
+  width: 80%;
+  border-radius: 99%;
+  margin: auto;
+}
+
+.username-input {
+  width: 100%;
+  padding: 5px;
+  /* margin-top: 10px; */
+  font-size: 1.3rem;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 6.28902px;
+  color: #000000;
+  height: 2.5rem;
+  /* font-family: '5 Thumbs Up Bold'; */
+  /* font-style: italic; */
+  /* text-shadow: 0px 0.870536px 0.870536px rgba(0, 0, 0, 0.5); */
+}
+
+.username-input::placeholder {
+  color: #000000;
+  /* font-family: '5 Thumbs Up Bold'; */
+  /* font-style: italic; */
+}
+
+.username-input:focus-visible {
+  outline: none;
+  /* box-shadow: none; */
+}
+
+/* Character grid section */
+.character-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.character-box {
+  background: #1f2d68;
+  box-shadow: 0px 3.48214px 1.74107px rgba(0, 0, 0, 0.5),
+    inset 0px -3.93064px 4.71676px rgba(0, 0, 0, 0.25),
+    inset -7.07515px 5.50289px 7.23237px rgba(0, 0, 0, 0.25),
+    inset -2.0678px -2.75706px 2.75706px rgba(255, 255, 255, 0.15),
+    inset 2.75706px 0px 6.89266px 1.37853px rgba(0, 0, 0, 0.25);
+  border-radius: 6.28902px;
+  /* border-radius: 10px; */
+  padding: 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 1px solid white;
+  box-shadow: inset 3px 9px 49px rgb(0 0 0);
+}
+
+.character-box:hover {
+  transform: scale(1.05);
+}
+
+.character-box img {
+  max-width: 80%;
+  /* filter: drop-shadow(0px 1.63884px 3.27769px #000000); */
+  filter: drop-shadow(0px 2.0855px 4.171px rgba(0, 0, 0, 0.5));
+}
+
+/* .selected {
+  border: 2px solid #00f;
+} */
+
+.unselected {
+  background: rgba(26, 38, 91, 0.61);
+  box-shadow: 0px 3.999px 3.999px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6.59208px);
+}
+
+/* Next button */
+.next-button {
+  max-width: 335px;
+  background: #1f2d68;
+  box-shadow: 0px 3.48214px 1.74107px rgba(0, 0, 0, 0.5),
+    inset 0px -3.93064px 4.71676px rgba(0, 0, 0, 0.25),
+    inset -7.07515px 5.50289px 7.23237px rgba(0, 0, 0, 0.25),
+    inset -2.0678px -2.75706px 2.75706px rgba(255, 255, 255, 0.15),
+    inset 2.75706px 0px 6.89266px 1.37853px rgba(0, 0, 0, 0.25);
+  border-radius: 6.28902px;
+  color: white;
+  border: none;
+  padding: 10px 0;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  border: 1px solid #fff;
+  width: 100%;
+  letter-spacing: 2px;
+  filter: drop-shadow(0px 1.63884px 3.27769px #000000);
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+}
+
+.avatarOuterDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.avatarPosition {
+  position: relative;
+}
+
+.inputPencilImage {
+  position: absolute;
+  right: 2%;
+  top: 15%;
+}
+
+.noDataBorder {
+  border: 2px solid red !important;
+  box-shadow: 0px 3.48214px 1.74107px rgba(238, 45, 45, 0.5),
+    inset 0px -3.93064px 4.71676px rgba(182, 3, 3, 0.25),
+    inset -7.07515px 5.50289px 7.23237px rgba(165, 7, 7, 0.25),
+    inset -2.0678px -2.75706px 2.75706px rgba(155, 9, 9, 0.15),
+    inset 2.75706px 0px 6.89266px 1.37853px rgba(211, 14, 14, 0.25);
+}
+
+.dataBorder {
+  box-shadow: 0px 3.48214px 1.74107px rgba(0, 0, 0, 0.5),
+    inset 0px -3.93064px 4.71676px rgba(0, 0, 0, 0.25),
+    inset -7.07515px 5.50289px 7.23237px rgba(0, 0, 0, 0.25),
+    inset -2.0678px -2.75706px 2.75706px rgba(255, 255, 255, 0.15),
+    inset 2.75706px 0px 6.89266px 1.37853px rgba(0, 0, 0, 0.25);
+}

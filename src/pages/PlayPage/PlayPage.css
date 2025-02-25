@@ -1,0 +1,66 @@
+
+
+.play-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  /* background-color: #f0f0f0; */
+  overflow: hidden; 
+}
+
+.map-container {
+  width: 100%;
+  /* text-align: center; */
+  margin-bottom: 20px;
+}
+
+.india-map {
+  width: 100%;
+  max-width: 400px;
+  cursor: pointer;
+}
+
+.player-selection {
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 20px; 
+  padding: 20px;
+}
+
+.player-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+}
+
+.player-card:hover {
+  transform: scale(1.05);
+}
+
+.player-image {
+  width: 145px; 
+  height: auto;
+  border-radius: 10px;
+}
+.player-card p {
+  margin-top: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #2A3567;
+  color: white;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 0.4rem;
+  margin-bottom: 0;
+}
+

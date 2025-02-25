@@ -1,0 +1,64 @@
+.CityLevelHeader {
+
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  /* justify-content: space-around;
+   */
+  z-index: 1;
+  position: relative;
+  padding: 2%;
+}
+
+.backHeaderIcon {
+  /* width: 10%; */
+  /* padding: 2%; */
+  background: #1f2d68;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5),
+    inset 0px -1px 1px rgba(0, 0, 0, 0.25),
+    inset -2px 2px 2px rgba(0, 0, 0, 0.25),
+    inset -2px -2px 2px rgba(255, 255, 255, 0.15),
+    inset 2px 0px 2px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 23.22px;
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.headerTopic {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  text-align: center;
+
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.headerTopic {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.headerTopic h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+.backHeaderIcon svg {
+  font-size: 30px;
+}

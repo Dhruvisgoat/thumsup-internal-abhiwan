@@ -1,0 +1,67 @@
+.menu-page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 15px; */
+  background: url("../../assets/UI/extra/menuTest.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
+
+.menu-page .menu_logo {
+  width: 60%;
+}
+
+.menu-page button {
+  width: 100%;
+  height: 40px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  background: #1f2d68;
+  box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.5),
+    inset 0px -4.51519px 5.41823px rgba(0, 0, 0, 0.25),
+    inset -8.12735px 6.32127px 8.30795px rgba(0, 0, 0, 0.25),
+    inset -2.37532px -3.16709px 3.16709px rgba(255, 255, 255, 0.15),
+    inset 3.16709px 0px 7.91772px 1.58354px rgba(0, 0, 0, 0.25);
+  border-radius: 7.22431px;
+  border: 1px solid #fff;
+  filter: drop-shadow(0px 1.63884px 3.27769px #000000);
+}
+
+.menu-page button:hover {
+  background-color: #0056b3;
+}
+
+.menu-page button:active {
+  background-color: #004085;
+}
+
+.menuBtn {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 10% 3%;
+  gap: 25px;
+  width: 65%;
+  background: rgba(239, 235, 222, 0.2);
+  backdrop-filter: blur(8.46619px);
+  /* Note: backdrop-filter has minimal browser support */
+  border-radius: 19.3411px;
+}
+.menuBtn button {
+  max-width:340px;
+  text-shadow: 0px 1px 20px rgb(255 255 255 / 50%);
+}
+.menuFoodImg {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.menuFoodImg img {
+  width: 100%;
+}

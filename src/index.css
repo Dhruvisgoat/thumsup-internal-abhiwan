@@ -1,0 +1,81 @@
+/* index.css */
+
+@font-face {
+  font-family: "thumsup";
+  src: url("./assets/Font/ThumsFont/ThumsUp-Black.ttf") format("opentype");
+}
+
+html,
+body {
+  width: 100vw;
+  /* Full viewport width */
+  height: 100dvh;
+  /* Full viewport height */
+  margin: 0;
+  /* Remove default margin */
+  display: flex;
+  /* Use Flexbox for centering */
+  justify-content: center;
+  /* Center the content horizontally */
+  align-items: center;
+  /* Center the content vertically */
+  background-color: #f0f0f0;
+  /* Background color */
+  overflow: hidden;
+  /* Prevent scrolling */
+  font-family: "thumsup", sans-serif !important;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-bottom: 0 !important;
+}
+
+.homeContainer {
+  width: 100vw;
+  /* Dynamic width (90% of viewport width) */
+  max-width: 500px;
+  /* Set a maximum width to mimic mobile */
+  height: 100%;
+  /* Make height full */
+  background-color: white;
+  /* Background color for the container */
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); Shadow for depth */
+  /* border-radius: 10px; */
+  /* Rounded corners */
+  overflow: hidden;
+  /* Allow vertical scrolling if content overflows */
+  position: relative;
+  /* For positioning inner elements */
+}
+
+.back-button {
+  position: absolute;
+  /* Positioning at the top left */
+  top: 10px;
+  left: 10px;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f0f0f0;
+  /* Background color for button */
+  border: none;
+  /* No border */
+  border-radius: 5px;
+  /* Rounded corners */
+  cursor: pointer;
+  /* Pointer cursor on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Shadow for depth */
+}
+
+/* Prevent scrolling in landscape mode */
+@media only screen and (orientation: landscape) {
+  body {
+    overflow: hidden;
+    /* Prevent overflow in landscape */
+  }
+}
