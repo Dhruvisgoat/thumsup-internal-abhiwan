@@ -99,10 +99,10 @@ import { DirectionContext } from "./RefContext/DirectionContext";
 const Sphere = ({ color = "white", position = [0, -100, 0] }) => {
     return (
         <group position={position} scale={1.2}>
-            <mesh position={[0, -1, 0]}>
+            {/* <mesh position={[0, -1, 0]}>
                 <sphereGeometry args={[4, 32, 32]} />
-                <meshStandardMaterial color={color} transparent={true} opacity={0.2} />
-            </mesh>
+                <meshStandardMaterial color={color} transparent={true} opacity={0.1} />
+            </mesh> */}
         </group>
 
     );

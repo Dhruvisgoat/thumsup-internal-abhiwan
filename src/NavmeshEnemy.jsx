@@ -14,13 +14,14 @@ import { PauseContext } from './RefContext/PauseContext'
 import { interactionGroups } from '@react-three/rapier'
 import { KnifeGoon } from './GameAssets/Enemies/KnifeGoon'
 import Truck from './GameAssets/Truck'
+import { Biker } from './GameAssets/Biker'
 
 // Constants for navigation and gameplay
 const ZONE = ' '
 const DISTANCE_THRESHOLD = 40
 const RAYCAST_CHECK_DISTANCE = 15
 
-export default function NavmeshEnemy({ truckUrl='/models/updatedGameAssets/Gadi01-transformed.glb', car, motu, drone, truck, knifeGoon, position = [-17.5, -4, 3.5], speed = 10 }) {
+export default function NavmeshEnemy({ truckUrl = '/models/updatedGameAssets/Gadi01-transformed.glb', car, motu, drone, truck, knifeGoon, biker, position = [-17.5, -4, 3.5], speed = 10 }) {
     // Speed settings based on input prop
     const RANDOM_MOVEMENT_SPEED = speed / 2;
     const CHASE_SPEED = speed;
@@ -303,6 +304,7 @@ export default function NavmeshEnemy({ truckUrl='/models/updatedGameAssets/Gadi0
             <group ref={customEnemyRef} castShadow scale={1.2}>
                 <group rotation={[0, 0, 0]}>
                     {car && <DeliveryBoy />}
+                    {biker && <Biker />}
                     {motu && <Motu />}
                     {drone && <Drone />}
                     {truck && <Truck truckUrl={truckUrl} />}
