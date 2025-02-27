@@ -47,31 +47,74 @@ const CharacterSelectionPage = () => {
 
   }, []);
 
-  const handleNext = () => {
+  // const handleNext = () => {
+  //   setShowError(true);
+
+  //   if (!username) {
+  //     toast.error("PLEASE ENTER USERNAME", {
+  //       duration: 1000,
+  //     });
+  //     return;
+  //   }
+  //   if (!selectedCharacter) {
+  //     toast.error("PLEASE SELECT CHARACTER", {
+  //       duration: 1000,
+  //     });
+  //     return;
+  //   }
+
+  //   if (username.length < 3) {
+  //     toast.error("USERNAME IS TOO SHORT.")
+  //     return
+  //   }
+
+  //   setGameInfo({ ...gameInfo, character: selectedCharacter, name: username });
+
+  //   navigate("/menu");
+  // };
+
+  const handleNext = async () => {
     setShowError(true);
 
     if (!username) {
-      toast.error("PLEASE ENTER USERNAME", {
-        duration: 1000,
-      });
+      toast.error("PLEASE ENTER USERNAME", { duration: 1000 });
       return;
     }
     if (!selectedCharacter) {
-      toast.error("PLEASE SELECT CHARACTER", {
-        duration: 1000,
-      });
+      toast.error("PLEASE SELECT CHARACTER", { duration: 1000 });
+      return;
+    }
+    if (username.length < 3) {
+      toast.error("USERNAME IS TOO SHORT.");
       return;
     }
 
-    if (username.length < 3) {
-      toast.error("USERNAME IS TOO SHORT.")
-      return
+    try {
+      const response = await fetch(`http://localhost:3001/user/create/profile`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: username, character: selectedCharacter }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to create profile");
+      }
+
+      const data = await response.json();
+      localStorage.setItem("authToken", data.token); // Store token in localStorage
+
+      toast.success("Profile created successfully!", { duration: 1000 });
+
+      setGameInfo({ ...gameInfo, character: selectedCharacter, name: username });
+      navigate("/menu");
+    } catch (error) {
+      toast.error(error.message || "Something went wrong", { duration: 1000 });
     }
-
-    setGameInfo({ ...gameInfo, character: selectedCharacter, name: username });
-
-    navigate("/menu");
   };
+
+  
 
   const characters = [
     { id: 1, imgSrc: char1, alt: "Character 1" },

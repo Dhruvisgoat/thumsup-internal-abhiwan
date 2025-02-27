@@ -1,26 +1,3 @@
-// import React from 'react'
-// import { useGLTF } from '@react-three/drei'
-
-// function Cap({ position, ...props }) {
-//     const { nodes, materials } = useGLTF('/models/updatedGameAssets/singleCap-transformed.glb')
-//     return (
-//         <group {...props} position={position}>
-//             {/* <group {...props} position={[position[0] * 2, position[1] * 2, position[2] * 2]}> */}
-//             {/* <group scale={0.409 * 5} position={[0, -10, -1]} > */}
-//             <group scale={0.409 * 5} position={[0, -3, -1]} >
-//                 <mesh geometry={nodes.Cylinder1760.geometry} material={materials['Blue Correct']} />
-//                 <mesh geometry={nodes.Cylinder1760_1.geometry} material={materials['Material.033']} />
-//             </group>
-//         </group>
-//     )
-// }
-
-// export default Cap
-// useGLTF.preload('models/updatedGameAssets/singleCap-transformed.glb')
-
-
-
-
 import React, { useState, useEffect, useContext, useRef } from "react";
 import { Instances, Instance, useGLTF } from "@react-three/drei";
 import * as THREE from "three";
@@ -59,7 +36,6 @@ function InstanceCap({ cap, audio }) {
                 // audio.volume = 0.05; // Set the volume
                 // audio.play(); // Play the audio
             }
-
         }
     });
 
@@ -69,7 +45,7 @@ function InstanceCap({ cap, audio }) {
                 <Instance
                     key={cap.id}
                     position={cap.position}
-                    scale={[0.409 * 3, 0.409 * 3, 0.409 * 3]}
+                    scale={[0.409 * 4.5, 0.409 * 4.5, 0.409 * 4.5]}
                 />
             )}
         </>
@@ -78,7 +54,8 @@ function InstanceCap({ cap, audio }) {
 
 function Caps({ capsPositions }) {
     const { nodes, materials } = useGLTF(
-        "/models/updatedGameAssets/singleCap-transformed.glb"
+        // "/models/updatedGameAssets/singleCap-transformed.glb"
+        "/models/updatedGameAssets/capNew-transformed.glb"
     );
 
     const { capIdRef } = useContext(CapRemoveIdContext);
@@ -96,11 +73,13 @@ function Caps({ capsPositions }) {
         return () => clearTimeout(timer); // Cleanup timer on component unmount
     }, []);
 
-    const blueMaterial = materials["Blue Correct"];
-    const greenMaterial = materials["Material.033"];
+    // const blueMaterial = materials["Blue Correct"];
+    // const greenMaterial = materials["Material.033"];
 
-    blueMaterial.side = THREE.DoubleSide;
-    greenMaterial.side = THREE.DoubleSide;
+    // blueMaterial.side = THREE.DoubleSide;
+    // greenMaterial.side = THREE.DoubleSide;
+
+    const lambertMaterial = materials["lambert1"];
 
     return (
         <group position={[0, -2, 0]} key={trigger}>
@@ -108,6 +87,16 @@ function Caps({ capsPositions }) {
             <PlayAudio audio={capAudio} capIdRef={capIdRef} />
 
             <Instances
+                limit={capsPositions.length}
+                geometry={nodes.Cylinder297.geometry}
+                material={lambertMaterial}
+            >
+                {capsPositions.map((cap, i) => (
+                    <InstanceCap key={i} cap={cap} audio={capAudio} />
+                ))}
+            </Instances>
+
+            {/* <Instances
                 limit={capsPositions.length}
                 geometry={nodes.Cylinder1760_1.geometry}
                 material={greenMaterial}
@@ -125,7 +114,7 @@ function Caps({ capsPositions }) {
                 {capsPositions.map((cap, i) => (
                     <InstanceCap key={i} cap={cap} audio={capAudio} />
                 ))}
-            </Instances>
+            </Instances> */}
         </group>
     );
 }

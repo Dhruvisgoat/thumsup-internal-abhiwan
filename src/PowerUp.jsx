@@ -35,35 +35,6 @@ function PowerUp() {
     useEffect(() => {
         let flickerInterval = null;
 
-        // if (!isPlayerDied) {
-        //     skinnedMeshRef.current.material.transparent = true;
-        //     skinnedMeshRef.current.material.opacity = 0.5;
-        //     skinnedMeshRef.current.material.color.set("#ffffff");
-        //     skinnedMeshRef.current.material.emissive = new THREE.Color("#ffffff");
-        //     skinnedMeshRef.current.material.emissiveIntensity = 3;
-
-        //     let isOpaque = false;
-        //     flickerInterval = setInterval(() => {
-        //         isOpaque = !isOpaque;
-        //         skinnedMeshRef.current.material.opacity = isOpaque ? 0.5 : 0.2;
-        //     }, 200);
-
-        //     const flickerDuration = setTimeout(() => {
-        //         clearInterval(flickerInterval);
-        //         skinnedMeshRef.current.material = materials['Material.003']; // Apply original material
-        //         skinnedMeshRef.current.material.transparent = true;
-        //         skinnedMeshRef.current.material.opacity = 1;
-        //         skinnedMeshRef.current.material.color.set("#ffffff");
-        //         skinnedMeshRef.current.material.emissive = new THREE.Color(0x000000);
-        //         skinnedMeshRef.current.material.emissiveIntensity = 0;
-        //     }, 1000);
-
-        //     return () => {
-        //         clearInterval(flickerInterval);
-        //         clearTimeout(flickerDuration);
-        //     };
-        // }
-
         if (powerup && !isPlayerDied) {
             skinnedMeshRef.current.material.transparent = true;
             skinnedMeshRef.current.material.opacity = 0.5;

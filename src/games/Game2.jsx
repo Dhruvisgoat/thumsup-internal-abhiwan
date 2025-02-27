@@ -741,13 +741,14 @@ function Canvass() {
 
           {/* non chasable enemies */}
 
-          <NavmeshEnemy key="1" position={[-39, -4, -66]} car={true} zMove={true} speed={12} />
+
+
+          {/* <NavmeshEnemy key="1" position={[-39, -4, -66]} car={true} zMove={true} speed={12} />
           <NavmeshEnemy key="2" position={[-118, -4, -15]} car={true} xMove={true} speed={12} />
           <NavmeshEnemy key="3" position={[-15, -4, 29]} car={true} xMove={true} speed={12} />
           <NavmeshEnemy key="4" position={[52, -4, 96]} car={true} zMove={true} speed={12} />
-          {/* Chasable enemies */}
           <NavmeshEnemy key="5" position={[-17.5, -4, 3.5]} car={true} speed={12} />
-          <NavmeshEnemy key="6" position={[30.2, -4, -45.58]} car={true} speed={12} />
+          <NavmeshEnemy key="6" position={[30.2, -4, -45.58]} car={true} speed={12} /> */}
 
 
         </Physics>

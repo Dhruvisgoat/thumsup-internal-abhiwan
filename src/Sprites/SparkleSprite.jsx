@@ -9,10 +9,7 @@ import { CapRemoveIdContext } from '../RefContext/CapRemoveId';
 
 const SparkleSpriteWrapper = () => {
   const {
-    collectedCountBiryani,
-    collectedCountCoke,
-    powerup,
-    invisiblePowerup
+    invisiblePowerupCount,
   } = useContext(DirectionContext);
 
   const [showDieSprite, setShowDieSprite] = useState(false);
@@ -22,8 +19,8 @@ const SparkleSpriteWrapper = () => {
     const timer = setTimeout(() => setShowDieSprite(false), 300); // Remove C after 1 second
 
     return () => clearTimeout(timer); // Cleanup timer on component unmount or d change
-  }, [collectedCountBiryani, collectedCountCoke,
-    // powerup, invisiblePowerup
+  }, [invisiblePowerupCount
+    // }, [powerupCount
   ]);
 
   return <>{showDieSprite && <DieSprite />}</>;

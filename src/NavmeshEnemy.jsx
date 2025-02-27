@@ -20,7 +20,7 @@ const ZONE = ' '
 const DISTANCE_THRESHOLD = 40
 const RAYCAST_CHECK_DISTANCE = 15
 
-export default function NavmeshEnemy({ car, motu, drone, truck, knifeGoon, position = [-17.5, -4, 3.5], speed = 10 }) {
+export default function NavmeshEnemy({ truckUrl='/models/updatedGameAssets/Gadi01-transformed.glb', car, motu, drone, truck, knifeGoon, position = [-17.5, -4, 3.5], speed = 10 }) {
     // Speed settings based on input prop
     const RANDOM_MOVEMENT_SPEED = speed / 2;
     const CHASE_SPEED = speed;
@@ -31,7 +31,7 @@ export default function NavmeshEnemy({ car, motu, drone, truck, knifeGoon, posit
     const customEnemyRef = useRef(new THREE.Group());
     const rigidBodyRef = useRef();
     const { setPause, setResetNavmeshEnemy, resetNavmeshEnemy } = useContext(PauseContext);
-    
+
     // Collision tracking ref to prevent multiple life decrements
     const isCollidingRef = useRef(false);
 
@@ -305,7 +305,7 @@ export default function NavmeshEnemy({ car, motu, drone, truck, knifeGoon, posit
                     {car && <DeliveryBoy />}
                     {motu && <Motu />}
                     {drone && <Drone />}
-                    {truck && <Truck/>}
+                    {truck && <Truck truckUrl={truckUrl} />}
                     {knifeGoon && <KnifeGoon />}
                 </group>
             </group>

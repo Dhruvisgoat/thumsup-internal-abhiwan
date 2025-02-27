@@ -1,23 +1,55 @@
 import styles from './Leaderboard.module.css'; // Import the CSS module
 import CityLevelHeader from '../../components/CityLevelHeader/CityLevelHeader';
 import char from "../../assets/UI/character/char1Half.png"
+import { useState, useEffect } from 'react';
 
-const leaderboardData = [
-    { id: 1, name: 'Alice', points: 150, image: char },
-    { id: 2, name: 'Alice', points: 120, image: char },
-    { id: 3, name: 'Alice', points: 100, image: char },
-    { id: 4, name: 'Alice', points: 90, image: char },
-    { id: 5, name: 'Alice', points: 80, image: char },
-    { id: 6, name: 'Alice', points: 150, image: char },
-    { id: 7, name: 'Alice', points: 120, image: char },
-    { id: 8, name: 'Alice', points: 120, image: char },
-    { id: 9, name: 'Alice', points: 120, image: char },
-    { id: 10, name: 'Alice', points: 120, image: char },
-];
+// const leaderboardData = [
+//     { id: 1, name: 'Alice', points: 150, image: char },
+//     { id: 2, name: 'Alice', points: 120, image: char },
+//     { id: 3, name: 'Alice', points: 100, image: char },
+//     { id: 4, name: 'Alice', points: 90, image: char },
+//     { id: 5, name: 'Alice', points: 80, image: char },
+//     { id: 6, name: 'Alice', points: 150, image: char },
+//     { id: 7, name: 'Alice', points: 120, image: char },
+//     { id: 8, name: 'Alice', points: 120, image: char },
+//     { id: 9, name: 'Alice', points: 120, image: char },
+//     { id: 10, name: 'Alice', points: 120, image: char },
+// ];
 
 const Leaderboard = () => {
+
+    const [leaderboardData, setLeaderboardData] = useState([]);
+
+    useEffect(() => {
+        const fetchLeaderboard = async () => {
+            try {
+                console.log('hi')
+                const response = await fetch("http://localhost:3001/user/leaderboard");
+                const result = await response.json();
+                // console.log(result.data);
+                if (result.sucess && result.data) {
+                    console.log(result.data);
+
+                    setLeaderboardData(result.data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch leaderboard:", error);
+            }
+        };
+        fetchLeaderboard();
+    }, []);
+
+
+
+
+
+
+
+
+
+
     return (
-        <div style={{ height:'100vh',overflow:"scroll" }}>
+        <div style={{ height: '100vh', overflow: "scroll" }}>
             <CityLevelHeader />
             <div className={styles.leaderboard} style={{ marginTop: '40px', padding: '20px', background: 'rgba(25, 0, 252, 0.2)' }}>
                 <svg width="100%" style={{ padding: "0px" }} height="100%" viewBox="0 0 390 51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -198,14 +230,17 @@ const Leaderboard = () => {
                     </thead> */}
 
                     <tbody>
-                        {leaderboardData.map((item) => (
-                            <tr  key={item.id}>
-                                <td style={{ borderRadius: '10px 0px 0px 10px ' }}>{item.id}</td>
+                        {leaderboardData.map((item,index) => (
+                            <tr key={index}>
+                                <td style={{ borderRadius: '10px 0px 0px 10px ' }}>{index+1}</td>
                                 <td
                                     className='leaderBoardNameDepth'
                                 // style={{ display: 'flex', justifyContent: 'flex-start' }}
                                 >
-                                    <img className={styles.roundImage} src={item.image} alt={item.name} />
+                                    <img className={styles.roundImage}
+                                        // src={item.image}
+                                        src={char}
+                                        alt={item.name} />
                                     <span className='px-1'> {item.name}</span>
                                 </td>
                                 <td style={{ borderRadius: '0px 10px 10px 0px ' }}>{item.points}</td>

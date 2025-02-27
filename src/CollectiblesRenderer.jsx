@@ -96,10 +96,9 @@ import { useState, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { DirectionContext } from "./RefContext/DirectionContext";
 
-
 const Sphere = ({ color = "white", position = [0, -100, 0] }) => {
     return (
-        <group position={position}>
+        <group position={position} scale={1.2}>
             <mesh position={[0, -1, 0]}>
                 <sphereGeometry args={[4, 32, 32]} />
                 <meshStandardMaterial color={color} transparent={true} opacity={0.2} />
@@ -137,7 +136,6 @@ function InstanceCocaCola({ bottle, index, audio }) {
                 </>
             )}
         </>
-
     )
 }
 
@@ -164,16 +162,13 @@ function InstanceBiryani({ biryani, index, audio }) {
         <>
             {render && (
                 <>
-                    <Biryanii key={`biryani-${biryani.id}`} position={biryani.position} />
+                    <Biryanii index={index} key={`biryani-${biryani.id}`} position={biryani.position} />
                     <Sphere position={biryani.position} key={`sphere-biryani-${index}`} color="grey" />
                 </>
             )}
         </>
-
     )
 }
-
-
 
 const CollectiblesRenderer = (props) => {
     const {
@@ -188,7 +183,6 @@ const CollectiblesRenderer = (props) => {
     const biryaniAudio = useMemo(() => new Audio("/audio/eatSound.mp3"), []);
     const comboAudio = useMemo(() => new Audio("/audio/collected.mp3"), []);
     const drinkComboAudio = useMemo(() => new Audio("/audio/collectBottle.mp3"), []);
-
 
     return (
         <>

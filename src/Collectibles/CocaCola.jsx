@@ -13,7 +13,7 @@ const CocaCola = ({ position, ...props }) => {
     return (
         <>
             <group {...props} position={position} rotation={[0, Math.PI / 4, 0]} scale={1}>
-                <primitive object={scene.clone()} position={[0, -2, 0]} scale={0.8} />
+                <primitive object={scene.clone()} position={[0, -3, 0]} scale={1.2} />
                 {/* <Bottle scale={100} position={[0, 0, 0]} /> */}
                 {/* <CuboidCollider args={[0.5, 2, 0.5]} /> */}
             </group>

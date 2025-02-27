@@ -15,7 +15,9 @@ import Settings from './Popups/SettingsPopup/Settings'
 import { ViewContext } from '../RefContext/ViewContext';
 import { isAndroid, isIOS } from 'react-device-detect';
 import ScoreAlgo from './ScoreAlgo/ScoreAlgo';
-	
+import { ProgressBar } from 'react-bootstrap';
+import { use } from 'react';
+
 function AppUi() {
 
     const { setPause, pause } = useContext(PauseContext);
@@ -46,52 +48,9 @@ function AppUi() {
 
     return (
         <>
-            {/* <Slider
-                onChange={handleSliderChange}
-                value={sliderValue}
-                style={{ top: '200px', left: '30px', zIndex: '5000', width: '5px',height:'300px' }}
-                size="large"
-                color="rgba(255,255,255,0.5)"
-                orientation="vertical"
-                defaultValue={70}
-                aria-label="Small"
-                valueLabelDisplay="auto"
-            /> */}
-
-            {/* {isPlayerDied &&
-                <div style={{
-                    position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: '5', backgroundColor: 'white', padding: '5px', borderRadius: '8px'
-                }}>
-                    <button className='btn btn-danger' onClick={() => {
-                        setRestart(true);
-                        window.location.reload();
-                    }}> PLAYER DIED | RESTART </button>
-                </div>
-            } */}
-            {/* {(timeLeft <= 0) &&
-                <div style={{
-                    position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: '5', backgroundColor: 'white', padding: '5px', borderRadius: '8px'
-                }}>
-                    <button className='btn btn-danger' onClick={() => {
-                        setRestart(true);
-                        window.location.reload();
-                    }}> TIME UP | START AGAIN  </button>
-                </div>
-            } */}
-
-            {/* {isVictory &&
-                <div style={{
-                    position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: '5', backgroundColor: 'white', padding: '5px', borderRadius: '8px'
-                }}>
-                    <button className='btn btn-success' onClick={() => { }} >
-                        HURRAY ! Level Finished ,Click to play next level
-                    </button>
-                </div>
-            } */}
-
             <div style={{
                 fontSize: '13px',
-                width:"100vw",
+                width: "100vw",
                 position: 'fixed', left: '0%', zIndex: '50000', borderRadius: '8px'
                 , ...(isIOS && { top: '0%' }), // Add 'top: 0%' only for iOS
             }}>
@@ -122,11 +81,10 @@ function AppUi() {
                         {/* {lives} */}
                     </div>
 
-                    <div style={{ color: 'white', background: "#1A265B", border: '1px solid white', borderRadius: '5px', padding: '5px' }}>
-                        {/* {capCountRef.current / 2 - 946} */}
+                    {/* <div style={{ color: 'white', background: "#1A265B", border: '1px solid white', borderRadius: '5px', padding: '5px' }}>
                         {capCountRef.current / 2 - 930}
-                        {/* <ScoreAlgo/> */}
-                    </div>
+                    </div> */}
+
                     <div style={{ color: 'white', background: "#1A265B", border: '1px solid white', borderRadius: '5px', padding: '5px' }}>
                         {levelText}
                     </div>
@@ -178,7 +136,7 @@ function AppUi() {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                {/* <ToggleView /> */}
+                <ToggleView />
             </div>
 
             {
@@ -200,11 +158,170 @@ function AppUi() {
                 <LevelFinishPopup setOpenExit={setOpenExit} setOpenSettings={setOpenSettings} />
             }
 
+            <Progress />
+
             {/* <MiniMap />  */}
 
         </>
     )
 
 }
+
+
+// function Progress() {
+//     const [progress, setProgress] = useState(0);
+
+//     useEffect(() => {
+//         const interval = setInterval(() => {
+//             setProgress((prevProgress) => {
+//                 if (prevProgress >= 100) {
+//                     return 0; // Reset progress to 0 when it reaches 100
+//                 }
+//                 return prevProgress + 10; // Increase progress by 10% per interval
+//             });
+//         }, 50); // Runs every 50ms
+
+//         return () => clearInterval(interval);
+//     }, []);
+
+//     return (
+//         <div style={{ position: 'fixed', top: '15vh', right: '5vw', zIndex: 5, width: "200px",height:"300px" }}>
+//             <div className="loading-bar">
+//                 <ProgressBar now={progress} />
+//             </div>
+//         </div>
+//     )
+// }
+
+
+const Progress = () => {
+    const [progressBlue, setProgressBlue] = useState(100);
+    const [progressYellow, setProgressYellow] = useState(100);
+    const [visibleBlue, setVisibleBlue] = useState(false);
+    const [visibleYellow, setVisibleYellow] = useState(false);
+    const { invisiblePowerupCount, powerupCount, powerup, invisiblePowerup } = useContext(DirectionContext);
+
+    useEffect(() => {
+        if (powerupCount > 0 && powerup) {
+            setProgressBlue(100);
+            setVisibleBlue(true);
+
+            const interval = setInterval(() => {
+                setProgressBlue((prev) => {
+                    if (prev > 0) return prev - 1;
+                    clearInterval(interval);
+                    setVisibleBlue(false);
+                    return 0;
+                });
+            }, 100);
+
+            return () => clearInterval(interval);
+        } else {
+            setVisibleBlue(false);
+            setProgressBlue(0);
+        }
+    }, [powerupCount, powerup]);
+
+    useEffect(() => {
+        if (invisiblePowerupCount > 0 && invisiblePowerup) {
+            setProgressYellow(100);
+            setVisibleYellow(true);
+
+            const interval = setInterval(() => {
+                setProgressYellow((prev) => {
+                    if (prev > 0) return prev - 1;
+                    clearInterval(interval);
+                    setVisibleYellow(false);
+                    return 0;
+                });
+            }, 100);
+
+            return () => clearInterval(interval);
+        } else {
+            setVisibleYellow(false);
+            setProgressYellow(0);
+        }
+    }, [invisiblePowerupCount, invisiblePowerup]);
+
+    if (!visibleBlue && !visibleYellow) return null;
+
+    return (
+        <div style={{ position: "fixed", top: "100px", right: "5vw", zIndex: 5 }}>
+            {visibleBlue && (
+                <div style={{ position: "relative", width: "150px", height: "20px", marginBottom: '5px' }}>
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            background: "rgba(240, 240, 240, 0.8)",
+                            borderRadius: "5px",
+                            overflow: "hidden",
+                            position: "relative",
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: `${progressBlue}%`,
+                                height: "100%",
+                                background: "#88EFF8",
+                                transition: "width 0.1s linear",
+                            }}
+                        />
+                        <span
+                            style={{
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                fontWeight: "bold",
+                                color: "black",
+                                zIndex: 2,
+                            }}
+                        >
+                            Invisible
+                        </span>
+                    </div>
+                </div>
+            )}
+
+            {visibleYellow && (
+                <div style={{ position: "relative", width: "150px", height: "20px" }}>
+                    <div
+                        style={{
+                            width: "100%",
+                            height: "100%",
+                            background: "rgba(240, 240, 240, 0.8)",
+                            borderRadius: "5px",
+                            overflow: "hidden",
+                            position: "relative",
+                        }}
+                    >
+                        <div
+                            style={{
+                                width: `${progressYellow}%`,
+                                height: "100%",
+                                background: "yellow",
+                                transition: "width 0.1s linear",
+                            }}
+                        />
+                        <span
+                            style={{
+                                position: "absolute",
+                                top: "50%",
+                                left: "50%",
+                                transform: "translate(-50%, -50%)",
+                                fontWeight: "bold",
+                                color: "black",
+                                zIndex: 2,
+                            }}
+                        >
+                            1.5 x Speed
+                        </span>
+                    </div>
+                </div>
+            )}
+        </div>
+    );
+};
 
 export default AppUi

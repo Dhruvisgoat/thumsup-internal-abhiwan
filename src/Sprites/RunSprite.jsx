@@ -7,11 +7,11 @@ import { DirectionContext } from '../RefContext/DirectionContext';
 import { MyContext } from '../RefContext/Context';
 
 function RunSprite() {
-    const { isPlayerDied, coordinates, powerup, invisiblePowerup } = useContext(DirectionContext);
+    const { isPlayerDied, coordinates, invisiblePowerup } = useContext(DirectionContext);
     const { playerRef } = useContext(MyContext);
     const spriteRef = useRef();
 
-    const texture = useMemo(() =>  useLoader(TextureLoader, 'Sprites/bigboom.png'), []);
+    const texture = useMemo(() => useLoader(TextureLoader, 'Sprites/flash.png'), []);
 
     const spriteFrames = useMemo(() => {
         const frames = [];
@@ -24,16 +24,14 @@ function RunSprite() {
     }, []);
 
     const currentFrame = useRef(0);
-    const interval = useRef(0.1); // Interval between frames
+    const interval = useRef(0.05);
     const elapsedTime = useRef(0);
-    const animationTime = useRef(0); // Tracks total animation time
-    const isAnimating = useRef(false); // Controls animation state
+    const isAnimating = useRef(false);
 
     useFrame((_, delta) => {
-        // if (!isAnimating.current || !spriteRef.current) return;
+        if (!isAnimating.current || !spriteRef.current) return;
 
         elapsedTime.current += delta;
-        animationTime.current += delta;
 
         if (elapsedTime.current > interval.current) {
             elapsedTime.current = 0;
@@ -43,43 +41,38 @@ function RunSprite() {
             texture.offset.set(u, v);
             texture.repeat.set(uWidth, vHeight);
         }
-
-        // Stop animation after 5 seconds
-        if (animationTime.current >= 0.6) {
-            isAnimating.current = false;
-            spriteRef.current.visible = false;
-        }
     });
 
     useEffect(() => {
         if (spriteRef.current) {
-            if (invisiblePowerup === true) {
-                currentFrame.current = 0;
+            if (invisiblePowerup) {
                 isAnimating.current = true;
-                animationTime.current = 0;
                 spriteRef.current.visible = true;
                 spriteRef.current.position.set(coordinates.x, 0, coordinates.z);
             } else {
-                // isAnimating.current = false;
-                // spriteRef.current.visible = false;
+                isAnimating.current = false;
+                spriteRef.current.visible = false;
             }
         }
-    }, [isPlayerDied, coordinates]);
+    }, [invisiblePowerup, coordinates]);
 
     return (
         <sprite
             ref={spriteRef}
             visible={false}
-            scale={10}
-            position={[0, 5, 0]}
+            scale={15}
+            position={[0, 1, 0]}
+            renderOrder={999} 
         >
             <spriteMaterial
                 map={texture}
-                opacity={0.9}
-                transparent={true}
-                alphaTest={0.5}
-                depthWrite={true}
-                depthTest={true}
+                depthTest={false} 
+                depthWrite={false}
+                // opacity={0.9}
+                // transparent={true}
+                // alphaTest={0.5}
+                // depthWrite={true}
+                // depthTest={true}
             />
         </sprite>
     );

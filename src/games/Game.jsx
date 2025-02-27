@@ -750,18 +750,19 @@ function Canvass() {
           <Enemy id={4} position={[-15, -7, 29]} car={true} xMove={true} speed={7} />
           <Enemy id={5} position={[52, -7, 96]} car={true} zMove={true} speed={7} /> */}
 
-          <NavmeshEnemy key="1" position={[-39, -4, -66]} car={true} zMove={true} speed={10} />
+          {/* <NavmeshEnemy key="1" position={[-39, -4, -66]} car={true} zMove={true} speed={10} />
           <NavmeshEnemy key="2" position={[-118, -4, -15]} car={true} xMove={true} speed={10} />
-          <NavmeshEnemy key="3" position={[-15, -4, 29]} truck={true} xMove={true} speed={10} />
-          <NavmeshEnemy key="4" position={[52, -4, 96]} truck={true} zMove={true} speed={10} />
-          <NavmeshEnemy key="5" position={[-17.5, -4, 3.5]} car={true} speed={10} />
+          <NavmeshEnemy key="3" truckUrl="/models/updatedGameAssets/Gadi03-transformed.glb" position={[-15, -4, 29]} truck={true} xMove={true} speed={10} />
+          <NavmeshEnemy key="4" truckUrl="/models/updatedGameAssets/Gadi02-transformed.glb" position={[52, -4, 96]} truck={true} zMove={true} speed={10} />
+          <NavmeshEnemy key="5" truckUrl="/models/updatedGameAssets/Gadi01-transformed.glb" position={[-17.5, -4, 3.5]} truck={true} speed={10} /> */}
 
         </Physics>
 
         {/* <DieSpriteWrapper /> */}
         {/* <RunSprite /> */}
         <CollectibleSpriteWrapper />
-        {/* <SparkleSpriteWrapper/> */}
+        <SparkleSpriteWrapper />
+        
 
 
         <ControlAudio />

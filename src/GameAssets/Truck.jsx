@@ -1,8 +1,9 @@
+
 import React from 'react'
 import { useGLTF } from '@react-three/drei'
 
-function Truck(props) {
-    const { scene } = useGLTF('/models/updatedGameAssets/gadi-transformed.glb')
+function Truck({ truckUrl, ...props }) {
+    const { scene } = useGLTF(truckUrl)
 
     return (
         <group {...props} scale={[4.6, 8, 3.6]} rotation={[0, -5 * Math.PI / 4, 0]} >
@@ -13,4 +14,4 @@ function Truck(props) {
 
 export default Truck
 
-useGLTF.preload('/models/updatedGameAssets/truck-transformed.glb')
+useGLTF.preload('/models/updatedGameAssets/Gadi01-transformed.glb')

@@ -12,7 +12,7 @@ const DrinkCombo = ({ position, ...props }) => {
     return (
         <>
             <group position={position} rotation={[0, Math.PI / 4, 0]} {...props}>
-                <primitive position={[0, -3, 0]} {...props} object={scene.clone()} scale={1} />
+                <primitive position={[0, -3, 0]} {...props} object={scene.clone()} scale={1.3} />
                 {/* <Drink_Combo scale={0.04} position={[0, -2, 0]} /> */}
             </group>
 
