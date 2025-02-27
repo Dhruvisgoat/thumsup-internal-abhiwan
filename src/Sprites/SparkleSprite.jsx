@@ -93,16 +93,17 @@ function DieSprite({ position = [0, 3, 0] }) {
     <>
       <sprite
         ref={spriteRef}
-        scale={25}
+        scale={20}
         position={[0, 2.5, 0]}
+        renderOrder={999}
       >
         <spriteMaterial
           map={texture}
-          opacity={1}
-          transparent={true}
-          alphaTest={0.5}
-          depthWrite={true}
-          depthTest={true}
+          // opacity={1}
+          // transparent={true}
+          // alphaTest={0.5}
+          depthWrite={false}
+          depthTest={false}
         />
       </sprite>
     </>

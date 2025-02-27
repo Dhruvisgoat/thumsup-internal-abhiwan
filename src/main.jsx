@@ -11,7 +11,6 @@ createRoot(document.getElementById('root')).render(
   <div className="homeContainer" style={{ maxWidth: isTablet ? "100vw" : "500px" }}>
     <App />
   </div>
-
 )
 
 
