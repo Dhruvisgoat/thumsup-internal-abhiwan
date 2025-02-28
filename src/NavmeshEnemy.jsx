@@ -303,7 +303,7 @@ export default function NavmeshEnemy({ truckUrl = '/models/updatedGameAssets/Gad
             </RigidBody>
             <group ref={customEnemyRef} castShadow scale={1.2}>
                 <group rotation={[0, 0, 0]}>
-                    {car && <DeliveryBoy />}
+                    {/* {car && <DeliveryBoy />} */}
                     {biker && <Biker />}
                     {motu && <Motu />}
                     {drone && <Drone />}

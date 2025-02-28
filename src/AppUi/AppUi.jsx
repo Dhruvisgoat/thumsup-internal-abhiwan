@@ -254,7 +254,7 @@ const Progress = () => {
                             width: "100%",
                             height: "100%",
                             background: "rgba(240, 240, 240, 0.8)",
-                            borderRadius: "5px",
+                            borderRadius: "7px",
                             overflow: "hidden",
                             position: "relative",
                         }}
@@ -291,7 +291,7 @@ const Progress = () => {
                             width: "100%",
                             height: "100%",
                             background: "rgba(240, 240, 240, 0.8)",
-                            borderRadius: "5px",
+                            borderRadius: "7px",
                             overflow: "hidden",
                             position: "relative",
                         }}

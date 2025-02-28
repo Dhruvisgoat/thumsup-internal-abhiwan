@@ -1,13 +1,11 @@
-import React, { useMemo } from 'react'
-import { useGLTF } from '@react-three/drei'
+import React, { useMemo } from 'react';
+import { useGLTF } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
-
 
 export function Biryani(props) {
 
   const texture = useMemo(() => useLoader(TextureLoader, `thumsupAssetsImages/biryanis/biryani${props.index + 1}.png`), []);
-
   const { nodes, materials, scene } = useGLTF(`/models/updatedGameAssets/biryani${props.index + 1}-transformed.glb`)
 
   return (
