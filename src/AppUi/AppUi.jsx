@@ -136,7 +136,7 @@ function AppUi() {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center' }}>
-                <ToggleView />
+                {/* <ToggleView /> */}
             </div>
 
             {
