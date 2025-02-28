@@ -13,7 +13,7 @@ export function DeliveryBoy(props) {
 
     return (
         // <primitive  {...props} dispose={null} scale={[15,8,10]} rotation={[0, 3*Math.PI/4, 0]} position={[0, -4, 0]} object={scene.clone()} />
-        <primitive  {...props} dispose={null} scale={[1, 1, 1]} rotation={[0, Math.PI / 4, 0]} position={[0, 0, 0]} object={scene.clone()} />
+        <primitive  {...props} dispose={null} scale={[1, 1, 1]} rotation={[0, Math.PI / 4, 0]} position={[0, -3, 0]} object={scene.clone()} />
     )
 }
 

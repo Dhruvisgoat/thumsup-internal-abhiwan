@@ -33,6 +33,13 @@ const CharacterSelectionPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const token = localStorage.getItem("authToken");
+
+    if (!location.href.includes("edit") && token) {
+      navigate("/menu");
+      return;
+    }
+
     if (location.href.includes("edit")) {
       setEdit(true);
     }
@@ -73,6 +80,9 @@ const CharacterSelectionPage = () => {
   //   navigate("/menu");
   // };
 
+
+
+
   const handleNext = async () => {
     setShowError(true);
 
@@ -90,22 +100,33 @@ const CharacterSelectionPage = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/user/create/profile`, {
+      const token = localStorage.getItem("authToken");
+      const url = edit
+        ? "http://localhost:3001/user/update/profile"
+        : "http://localhost:3001/user/create/profile";
+
+      const headers = edit
+        ? { "Content-Type": "application/json", Authorization: token }
+        : { "Content-Type": "application/json" };
+
+      const response = await fetch(url, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers,
         body: JSON.stringify({ name: username, character: selectedCharacter }),
       });
 
       if (!response.ok) {
-        throw new Error("Failed to create profile");
+        throw new Error(edit ? "Failed to update profile" : "Failed to create profile");
       }
 
       const data = await response.json();
-      localStorage.setItem("authToken", data.token); // Store token in localStorage
+      if (!edit) {
+        localStorage.setItem("authToken", data.token);
+      }
 
-      toast.success("Profile created successfully!", { duration: 1000 });
+      toast.success(edit ? "Profile updated successfully!" : "Profile created successfully!", {
+        duration: 1000,
+      });
 
       setGameInfo({ ...gameInfo, character: selectedCharacter, name: username });
       navigate("/menu");
@@ -114,7 +135,8 @@ const CharacterSelectionPage = () => {
     }
   };
 
-  
+
+
 
   const characters = [
     { id: 1, imgSrc: char1, alt: "Character 1" },

@@ -1,7 +1,7 @@
 import "./MenuHeader.css"
 import info from "../../assets/UI/extra/info.png"
 import { useNavigate } from "react-router-dom"
-import { useContext } from "react"
+import { useContext,useEffect,useState } from "react"
 import { GameInfo } from "../../Context/GameData"
 
 
@@ -18,6 +18,44 @@ const MenuHeader = () => {
 
   const charArray = [char1, char2, char3, char4]
 
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      // console.log("fetch profile called");
+      const token = localStorage.getItem("authToken");
+      if (!token) return;
+
+      try {
+
+        const response = await fetch("http://localhost:3001/user/get/profile", {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
+        });
+
+        if (!response.ok) throw new Error("Failed to fetch");
+
+        const data = await response.json();
+        console.log(data);
+        setUsername(data.data.name);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchProfile();
+  }, []);
+
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="menuHeader">
@@ -33,7 +71,8 @@ const MenuHeader = () => {
             />
           </div>
           <div style={{ position: 'relative', zIndex: '1' }} >
-            <p onClick={() => { navigate("/edit") }} style={{ position: 'absolute',   textShadow: '0px 1px 20px rgba(255, 255, 255, 0.5)', top: '-13px', left: '0px', zIndex: '2', width: '110px', textAlign: 'center' }} className="text-white px-2 uiButton">{gameInfo.name}</p>
+            {/* <p onClick={() => { navigate("/edit") }} style={{ position: 'absolute',   textShadow: '0px 1px 20px rgba(255, 255, 255, 0.5)', top: '-13px', left: '0px', zIndex: '2', width: '110px', textAlign: 'center' }} className="text-white px-2 uiButton">{gameInfo.name}</p> */}
+            <p onClick={() => { navigate("/edit") }} style={{ position: 'absolute',   textShadow: '0px 1px 20px rgba(255, 255, 255, 0.5)', top: '-13px', left: '0px', zIndex: '2', width: '110px', textAlign: 'center' }} className="text-white px-2 uiButton">{username}</p>
             <svg onClick={() => { navigate("/edit") }} className="uiButton" style={{ position: 'absolute', top: '-17px', left: '-40px' }} width="170" height="38" viewBox="0 0 134 38" fill="none" xmlns="http://www.w3.org/2000/svg">
               <g filter="url(#filter0_dii_1_2)">
                 <path d="M2 6.28902C2 2.81569 4.81569 0 8.28902 0H125.711C129.184 0 132 2.81569 132 6.28902V25.711C132 29.1843 129.184 32 125.711 32H8.28901C4.81569 32 2 29.1843 2 25.711V6.28902Z" fill="#142A75" />

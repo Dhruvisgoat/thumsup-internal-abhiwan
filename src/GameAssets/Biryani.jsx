@@ -13,7 +13,7 @@ export function Biryani(props) {
   return (
     <group {...props} dispose={null}>
       {/* <primitive object={scene.clone()} scale={200} position={[-12, -5, 0]} /> */}
-      <sprite scale={12}>
+      <sprite scale={13}>
         <spriteMaterial attach="material" map={texture} />
       </sprite>
     </group>
