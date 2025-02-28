@@ -15,13 +15,15 @@ import { interactionGroups } from '@react-three/rapier'
 import { KnifeGoon } from './GameAssets/Enemies/KnifeGoon'
 import Truck from './GameAssets/Truck'
 import { Biker } from './GameAssets/Biker'
+import { TomatoBiker } from './GameAssets/TomotoBiker'
+import { Devboy2 } from './GameAssets/Devboy2'
 
 // Constants for navigation and gameplay
 const ZONE = ' '
 const DISTANCE_THRESHOLD = 40
 const RAYCAST_CHECK_DISTANCE = 15
 
-export default function NavmeshEnemy({ truckUrl = '/models/updatedGameAssets/Gadi01-transformed.glb', car, motu, drone, truck, knifeGoon, biker, position = [-17.5, -4, 3.5], speed = 10 }) {
+export default function NavmeshEnemy({ truckUrl = '/models/updatedGameAssets/Gadi01-transformed.glb', car, motu, drone, truck, knifeGoon, biker, devboy2,    position = [-17.5, -4, 3.5], speed = 10, tomatoBiker }) {
     // Speed settings based on input prop
     const RANDOM_MOVEMENT_SPEED = speed / 2;
     const CHASE_SPEED = speed;
@@ -305,10 +307,12 @@ export default function NavmeshEnemy({ truckUrl = '/models/updatedGameAssets/Gad
                 <group rotation={[0, 0, 0]}>
                     {/* {car && <DeliveryBoy />} */}
                     {biker && <Biker />}
+                    {devboy2 && <Devboy2 />}
                     {motu && <Motu />}
                     {drone && <Drone />}
                     {truck && <Truck truckUrl={truckUrl} />}
                     {knifeGoon && <KnifeGoon />}
+                    {tomatoBiker && <TomatoBiker />}
                 </group>
             </group>
         </group>
